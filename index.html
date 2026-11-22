@@ -1,21 +1,475 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="문화콘텐츠 사업기획자의 프로젝트와 기록을 담은 포트폴리오">
-<title>Culture & Content | Portfolio</title>
-<style>
-:root{--bg:#f7f5f0;--ink:#222620;--muted:#62685f;--line:#d9dcd3;--accent:#3d624d}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,'Noto Sans KR',sans-serif;line-height:1.75}a{color:inherit;text-decoration:none}a:hover{color:var(--accent)}.wrap{width:min(1100px,calc(100% - 44px));margin:auto}header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(247,245,240,.96);z-index:5}nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-weight:800;letter-spacing:-.03em}nav .links{display:flex;gap:24px;font-size:13px;font-weight:650}.hero{padding:118px 0 120px;max-width:900px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:800}.hero h1{font-size:clamp(42px,7.5vw,90px);line-height:1.18;letter-spacing:-.065em;margin:22px 0 28px;word-break:keep-all}.hero p{max-width:660px;font-size:18px;color:var(--muted);word-break:keep-all}.pill{display:inline-block;background:var(--ink);color:white;padding:13px 22px;border-radius:99px;font-size:13px;font-weight:700;margin-top:24px}.pill:hover{color:white;background:var(--accent)}section{padding:90px 0;border-top:1px solid var(--line)}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:35px}.section-head h2{font-size:clamp(30px,4vw,49px);letter-spacing:-.045em;margin:0}.section-head span{font-size:12px;color:var(--muted)}.about{display:grid;grid-template-columns:1fr 1.5fr;gap:60px}.about p{font-size:18px;margin:0 0 22px}.tags{display:flex;gap:8px;flex-wrap:wrap}.tag{font-size:12px;padding:8px 13px;border:1px solid var(--line);border-radius:30px}.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.project{background:#fff;border:1px solid var(--line);border-radius:12px;padding:34px;min-height:260px;display:flex;flex-direction:column}.num{font-size:12px;color:var(--accent);font-weight:800}.project h3{font-size:25px;letter-spacing:-.04em;line-height:1.35;margin:24px 0 10px;word-break:keep-all}.project p{color:var(--muted);font-size:14px;margin:0}.project .bottom{font-size:12px;color:var(--accent);margin-top:auto;padding-top:30px}.note{background:#e9ede5;border-radius:12px;padding:40px;max-width:850px}.note h3{font-size:26px;line-height:1.4;letter-spacing:-.04em;margin:0 0 12px}.note p{margin:0;color:var(--muted)}footer{padding:38px 0;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}@media(max-width:700px){nav{align-items:flex-start;padding:18px 0;flex-direction:column;gap:8px}nav .links{gap:18px}.hero{padding:82px 0 92px}.about,.projects{grid-template-columns:1fr}.about{gap:20px}section{padding:65px 0}.project{min-height:220px}.note{padding:26px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI 영화제와 AI 영화학교 기획 및 운영 포트폴리오">
+  <title>AI Film & Education | Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --ink: #242722;
+      --muted: #686d67;
+      --line: #dedfd8;
+      --accent: #476555;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Noto Sans KR", sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: auto;
+      padding: 0 26px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #f7f6f2f2;
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .links {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 130px 0 120px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(40px, 6.5vw, 78px);
+      line-height: 1.25;
+      letter-spacing: -0.06em;
+      margin: 26px 0;
+      word-break: keep-all;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.35;
+      letter-spacing: -0.04em;
+      margin: 18px 0 28px;
+      word-break: keep-all;
+    }
+
+    h3 {
+      font-size: 25px;
+      margin: 0 0 18px;
+      letter-spacing: -0.03em;
+    }
+
+    p { margin: 0 0 18px; }
+
+    .lead {
+      font-size: clamp(17px, 2vw, 21px);
+      color: var(--muted);
+      max-width: 750px;
+    }
+
+    .button {
+      display: inline-block;
+      border: 1px solid var(--ink);
+      border-radius: 100px;
+      padding: 12px 24px;
+      margin-top: 28px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: var(--ink);
+      color: white;
+    }
+
+    section {
+      padding: 95px 0;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 90px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      padding: 7px 14px;
+      border-radius: 40px;
+      font-size: 13px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 42px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 36px;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .number {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .tags {
+      margin-top: auto;
+      padding-top: 22px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .note {
+      padding: 32px;
+      border-left: 3px solid var(--accent);
+      background: #eeefe9;
+      margin-top: 24px;
+    }
+
+    footer {
+      padding: 48px 0;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 0;
+        gap: 10px;
+      }
+
+      .links {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .hero { padding: 90px 0 80px; }
+
+      section { padding: 65px 0; }
+
+      .section-head { grid-template-columns: 1fr; }
+
+      .cards { grid-template-columns: 1fr; }
+
+      .card {
+        min-height: 290px;
+        padding: 28px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header><nav class="wrap"><a class="logo" href="#home">CULTURE / CONTENT</a><div class="links"><a href="#about">ABOUT</a><a href="#projects">PROJECTS</a><a href="#insights">INSIGHTS</a></div></nav></header>
+
+<header>
+  <nav class="wrap nav" aria-label="주 메뉴">
+    <a class="brand" href="#home">AI FILM / EDUCATION</a>
+
+    <div class="links">
+      <a href="#about">ABOUT</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+</header>
+
 <main>
-<div class="wrap"><section class="hero" id="home"><div class="eyebrow">Culture & Content Project Planner</div><h1>아이디어를 사업으로,<br>경험을 새로운 가능성으로.</h1><p>문화콘텐츠의 가능성을 발견하고, 사람과 자원을 연결해 아이디어를 실제 사업으로 구현하는 기획자입니다.</p><a class="pill" href="#projects">프로젝트 살펴보기 ↗</a></section></div>
-<section id="about"><div class="wrap"><div class="section-head"><h2>About</h2><span>01 / 소개</span></div><div class="about"><div class="eyebrow">Planning with perspective</div><div><p>공공기관에서 약 7년간 정책기획, 성과관리, 조직 운영 및 문화콘텐츠 사업기획 업무를 경험했습니다.</p><p>국제 문화콘텐츠 행사와 창작자 교육사업을 기획·운영하며 사업계획 수립, 일정과 예산 관리, 전문가 및 유관기관 협력을 수행해 왔습니다.</p><p>현재는 AI·디지털 콘텐츠와 문화정책의 접점에서 새로운 사업의 가능성을 탐색하고 있습니다.</p><div class="tags"><span class="tag">사업기획</span><span class="tag">프로젝트 운영</span><span class="tag">정책·성과관리</span><span class="tag">AI·디지털 콘텐츠</span><span class="tag">대외협력</span></div></div></div></div></section>
-<section id="projects"><div class="wrap"><div class="section-head"><h2>Selected Projects</h2><span>02 / 주요 경험</span></div><div class="projects"><article class="project"><span class="num">PROJECT 01</span><h3>국제 문화콘텐츠 행사<br>기획 및 운영</h3><p>국제 공모·심사 운영, 프로그램 구성, 전문가 협력 및 프로젝트 관리</p><span class="bottom">CULTURAL EVENT / OPERATIONS</span></article><article class="project"><span class="num">PROJECT 02</span><h3>AI·디지털 콘텐츠<br>창작자 교육사업</h3><p>교육사업 발굴, 교육과정 기획, 강사 협력 및 운영체계 관리</p><span class="bottom">EDUCATION / PROGRAM PLANNING</span></article><article class="project"><span class="num">PROJECT 03</span><h3>공공기관 정책기획<br>및 성과관리</h3><p>경영평가 대응, 실적관리, 성과자료 정리 및 행정기획</p><span class="bottom">POLICY / PERFORMANCE</span></article><article class="project"><span class="num">PROJECT 04</span><h3>대외협력 및<br>사업 운영관리</h3><p>협력기관 및 전문가 조율, 사업 일정·예산·운영 업무 관리</p><span class="bottom">PARTNERSHIP / MANAGEMENT</span></article></div></div></section>
-<section id="insights"><div class="wrap"><div class="section-head"><h2>Insights</h2><span>03 / 생각과 기록</span></div><div class="note"><h3>현장의 경험을 다음 기획의 근거로.</h3><p>문화콘텐츠 산업, AI·디지털 기술, 공공 문화사업과 정책에 관한 고민을 앞으로 이곳에 기록할 예정입니다.</p></div></div></section>
-</main><footer><div class="wrap">© 2026 Culture & Content Portfolio · Built as an independent static website.</div></footer>
+
+  <!-- 메인 화면 -->
+  <div class="wrap">
+    <section class="hero" id="home" style="border:0">
+
+      <div class="eyebrow">
+        AI FILM FESTIVAL & EDUCATION PLANNER
+      </div>
+
+      <h1>
+        AI 영화제를 기획하고,<br>
+        AI 영화학교를 만듭니다.
+      </h1>
+
+      <p class="lead">
+        AI 영화제와 AI 영상 창작자 교육 프로그램을
+        기획하고 운영해 왔습니다.
+        창작자들이 작품을 선보이고 새로운 기술을
+        배울 수 있는 환경을 만드는 일을 합니다.
+      </p>
+
+      <a class="button" href="#projects">
+        주요 경력 살펴보기 ↗
+      </a>
+
+    </section>
+  </div>
+
+  <!-- 자기소개 -->
+  <section id="about">
+    <div class="wrap section-head">
+
+      <div>
+        <div class="eyebrow">01 / ABOUT</div>
+        <h2>
+          AI 영화와<br>
+          창작자를 연결합니다.
+        </h2>
+      </div>
+
+      <div>
+        <p>
+          문화콘텐츠 분야에서 약 7년간
+          다양한 기획과 운영 업무를 경험했습니다.
+        </p>
+
+        <p>
+          특히 2024년부터 AI 영화제 운영에 참여하며
+          AI 영상 창작자들의 작품이 관객과 만나는
+          과정을 함께해 왔습니다.
+        </p>
+
+        <p>
+          또한 AI 영화학교를 기획하고 운영하며
+          AI 영상 제작에 관심 있는 사람들이
+          창작을 배우고 경험할 수 있는
+          교육 프로그램을 만들어 왔습니다.
+        </p>
+
+        <div class="chips">
+          <span class="chip">AI 영화제</span>
+          <span class="chip">AI 영화학교</span>
+          <span class="chip">영화제 운영</span>
+          <span class="chip">교육 프로그램 기획</span>
+          <span class="chip">창작자 협력</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 주요 프로젝트 -->
+  <section id="projects">
+    <div class="wrap">
+
+      <div class="eyebrow">02 / SELECTED PROJECTS</div>
+
+      <h2>주요 기획 및 운영 경험</h2>
+
+      <p class="muted">
+        AI 영화제와 AI 영화학교를 중심으로
+        수행한 업무를 소개합니다.
+      </p>
+
+      <div class="cards">
+
+        <article class="card">
+          <div class="number">PROJECT 01 / AI FILM FESTIVAL</div>
+
+          <h3>AI 영화제 기획·운영</h3>
+
+          <p>
+            2024년부터 AI 영화제의 기획과
+            운영에 참여했습니다.
+          </p>
+
+          <p>
+            작품 공모와 심사 운영,
+            영화제 프로그램 구성,
+            창작자 및 전문가 협력,
+            행사 현장 운영 등
+            영화제의 주요 과정을 담당했습니다.
+          </p>
+
+          <div class="tags">
+            영화제 기획 · 작품 공모 · 심사 운영 · 행사 운영
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="number">PROJECT 02 / AI FILM SCHOOL</div>
+
+          <h3>AI 영화학교 기획·운영</h3>
+
+          <p>
+            AI 영상 창작에 관심 있는 참여자를 위한
+            교육 프로그램을 기획하고 운영했습니다.
+          </p>
+
+          <p>
+            교육과정 구성과 강사진 협력,
+            참여자 모집, 교육 운영,
+            참여자 의견 수집 등
+            교육 프로그램의 전반적인 과정을 담당했습니다.
+          </p>
+
+          <div class="tags">
+            교육과정 기획 · 강사진 협력 · 교육 운영
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 주요 역량 -->
+  <section id="experience">
+    <div class="wrap section-head">
+
+      <div>
+        <div class="eyebrow">03 / EXPERIENCE</div>
+
+        <h2>
+          기획부터 운영까지,<br>
+          현장에서 쌓은 경험
+        </h2>
+      </div>
+
+      <div>
+        <h3>영화제 운영</h3>
+        <p class="muted">
+          공모, 심사, 프로그램 구성,
+          창작자 및 전문가 협력,
+          행사 현장 운영
+        </p>
+
+        <h3>교육 프로그램 운영</h3>
+        <p class="muted">
+          교육과정 기획, 강사진 섭외 및 협력,
+          참여자 모집, 교육 진행,
+          교육 결과 정리
+        </p>
+
+        <h3>프로젝트 관리 및 협업</h3>
+        <p class="muted">
+          일정 조율, 운영계획 수립,
+          관계자 커뮤니케이션,
+          현장 문제 해결
+        </p>
+
+        <div class="note">
+          <strong>관심 분야</strong>
+          <p class="muted" style="margin-top:12px;margin-bottom:0">
+            AI 영화와 영상 창작의 변화,
+            AI 창작자 교육,
+            영화제와 새로운 창작 생태계
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 연락 -->
+  <section id="contact">
+    <div class="wrap section-head">
+
+      <div>
+        <div class="eyebrow">04 / CONTACT</div>
+
+        <h2>
+          새로운 경험과<br>
+          연결을 이어갑니다.
+        </h2>
+      </div>
+
+      <div>
+        <p>
+          AI 영화제, AI 영상교육,
+          문화콘텐츠 프로그램에 관한
+          경험과 생각을 공유하고자 합니다.
+        </p>
+
+        <p class="muted">
+          연락처와 프로젝트 관련 자료는
+          추후 추가할 예정입니다.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 AI Film & Education Portfolio.
+    Built with HTML & GitHub Pages.
+  </div>
+</footer>
+
 </body>
 </html>
